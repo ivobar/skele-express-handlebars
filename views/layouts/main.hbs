@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Messenger</title>
+    <link rel="stylesheet" type="text/css" href="/site.css">
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <ul>
+          <li><a href="/">Home Page</a></li>
+          <li class="delimeter"></li>
+          {{#if user}}
+          <a class="align-right" href="javascript:document.getElementById('logout-form').submit()" >Logout</a> 
+          <form id="logout-form" action="/user/logout" method="post" ></form>          
+          {{else}}
+          <li class="align-right"><a href="/user/register">Register</a></li>
+          <li class="align-right"><a href="/user/login">Login</a></li>
+          {{/if}}
+        </ul>
+      </nav>
+    </header>
+    {{#if error}}
+    <h2 class="message error">{{error}}</h2>
+    {{/if}}
+    {{#if success}}
+    <h2 class="message success">{{success}}</h2>
+    {{/if}}
+    {{{body}}}
+    <footer>
+      <p>&copy;App by Ivaka</p>
+    </footer>
+  </body>
+</html>
